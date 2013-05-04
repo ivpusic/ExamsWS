@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <definitions 
+ xmlns="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="examsService" targetNamespace="http://exams.emp.com/" xmlns:tns="http://exams.emp.com/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:fi="http://java.sun.com/xml/ns/wsit/2006/09/policy/fastinfoset/service" xmlns:tcp="http://java.sun.com/xml/ns/wsit/2006/09/policy/soaptcp/service" xmlns:wsat="http://schemas.xmlsoap.org/ws/2004/10/wsat" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" 
+ >
+    <message name="getStudentById"/>
+    <message name="getStudentByIdResponse"/>
+    <message name="getAllStudents"/>
+    <message name="getAllStudentsResponse"/>
+    <message name="getCourseById"/>
+    <message name="getCourseByIdResponse"/>
+    <message name="getAllCourses"/>
+    <message name="getAllCoursesResponse"/>
+    <message name="getExamsOfStudent"/>
+    <message name="getExamsOfStudentResponse"/>
+    <message name="getAllStudentsOnExam"/>
+    <message name="getAllStudentsOnExamResponse"/>
+    <message name="getAllStudentsWhichArePassedExam"/>
+    <message name="getAllStudentsWhichArePassedExamResponse"/>
+    <message name="getAllStudentsWhichAreNotPassedExam"/>
+    <message name="getAllStudentsWhichAreNotPassedExamResponse"/>
+    <portType name="examsService">
+        <operation name="getStudentById">
+            <input message="tns:getStudentById"/>
+            <output message="tns:getStudentByIdResponse"/>
+        </operation>
+        <operation name="getAllStudents">
+            <input message="tns:getAllStudents"/>
+            <output message="tns:getAllStudentsResponse"/>
+        </operation>
+        <operation name="getCourseById">
+            <input message="tns:getCourseById"/>
+            <output message="tns:getCourseByIdResponse"/>
+        </operation>
+        <operation name="getAllCourses">
+            <input message="tns:getAllCourses"/>
+            <output message="tns:getAllCoursesResponse"/>
+        </operation>
+        <operation name="getExamsOfStudent">
+            <input message="tns:getExamsOfStudent"/>
+            <output message="tns:getExamsOfStudentResponse"/>
+        </operation>
+        <operation name="getAllStudentsOnExam">
+            <input message="tns:getAllStudentsOnExam"/>
+            <output message="tns:getAllStudentsOnExamResponse"/>
+        </operation>
+        <operation name="getAllStudentsWhichArePassedExam">
+            <input message="tns:getAllStudentsWhichArePassedExam"/>
+            <output message="tns:getAllStudentsWhichArePassedExamResponse"/>
+        </operation>
+        <operation name="getAllStudentsWhichAreNotPassedExam">
+            <input message="tns:getAllStudentsWhichAreNotPassedExam"/>
+            <output message="tns:getAllStudentsWhichAreNotPassedExamResponse"/>
+        </operation>
+    </portType>
+    <binding name="examsServicePortBinding" type="tns:examsService">
+        <wsp:PolicyReference URI="#examsServicePortBindingPolicy"/>
+        <operation name="getStudentById">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getAllStudents">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getCourseById">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getAllCourses">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getExamsOfStudent">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getAllStudentsOnExam">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getAllStudentsWhichArePassedExam">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="getAllStudentsWhichAreNotPassedExam">
+            <input/>
+            <output/>
+        </operation>
+    </binding>
+    <service name="examsService">
+        <port name="examsServicePort" binding="tns:examsServicePortBinding"/>
+    </service>
+    <wsp:Policy wsu:Id="examsServicePortBindingPolicy">
+        <wsp:ExactlyOne>
+            <wsp:All/>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="examsServicePortBinding_getLandeka_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <wsat:ATAssertion wsp:Optional="true"/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="examsServicePortBinding_getLandeka_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="examsServicePortBinding_getLandeka_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="examsServicePortBinding_hello_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="examsServicePortBinding_hello_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="examsServicePortBinding_operation_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="examsServicePortBinding_operation_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+</definitions>
