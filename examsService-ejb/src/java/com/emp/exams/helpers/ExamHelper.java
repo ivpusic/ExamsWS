@@ -72,6 +72,9 @@ public class ExamHelper extends DbHelper {
         return studentsOnExam;
     }
 
+    /*
+     * @brief Method for getting all students which are passed/notPassed on some exam
+     */
     public List<Exam> getAllPassedStudentsOnExamFromDatabase(int courseId, int isPassed) {
         ResultSet rs = findRecordByForeignKey("Exam", "Course_id", courseId, "passed", isPassed);
         List<Exam> exams = new ArrayList<Exam>();

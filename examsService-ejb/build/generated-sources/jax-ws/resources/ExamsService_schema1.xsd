@@ -1,4 +1,155 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" targetNamespace="http://exams.emp.com/" xmlns:tns="http://exams.emp.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getAllCourses" type="tns:getAllCourses"/>
+
+  <xs:element name="getAllCoursesResponse" type="tns:getAllCoursesResponse"/>
+
+  <xs:element name="getAllStudents" type="tns:getAllStudents"/>
+
+  <xs:element name="getAllStudentsOnExam" type="tns:getAllStudentsOnExam"/>
+
+  <xs:element name="getAllStudentsOnExamResponse" type="tns:getAllStudentsOnExamResponse"/>
+
+  <xs:element name="getAllStudentsResponse" type="tns:getAllStudentsResponse"/>
+
+  <xs:element name="getAllStudentsWhichAreNotPassedExam" type="tns:getAllStudentsWhichAreNotPassedExam"/>
+
+  <xs:element name="getAllStudentsWhichAreNotPassedExamResponse" type="tns:getAllStudentsWhichAreNotPassedExamResponse"/>
+
+  <xs:element name="getAllStudentsWhichArePassedExam" type="tns:getAllStudentsWhichArePassedExam"/>
+
+  <xs:element name="getAllStudentsWhichArePassedExamResponse" type="tns:getAllStudentsWhichArePassedExamResponse"/>
+
+  <xs:element name="getCourseById" type="tns:getCourseById"/>
+
+  <xs:element name="getCourseByIdResponse" type="tns:getCourseByIdResponse"/>
+
+  <xs:element name="getExamsOfStudent" type="tns:getExamsOfStudent"/>
+
+  <xs:element name="getExamsOfStudentResponse" type="tns:getExamsOfStudentResponse"/>
+
+  <xs:element name="getStudentById" type="tns:getStudentById"/>
+
+  <xs:element name="getStudentByIdResponse" type="tns:getStudentByIdResponse"/>
+
+  <xs:complexType name="getCourseById">
+    <xs:sequence>
+      <xs:element name="courseId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCourseByIdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:course" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="course">
+    <xs:sequence>
+      <xs:element name="ects" type="xs:int"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="semester" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllStudents">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllStudentsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:student" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="student">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllStudentsWhichAreNotPassedExam">
+    <xs:sequence>
+      <xs:element name="courseId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllStudentsWhichAreNotPassedExamResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:exam" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="exam">
+    <xs:sequence>
+      <xs:element name="course" type="tns:course" minOccurs="0"/>
+      <xs:element name="dateOfExam" type="xs:string" minOccurs="0"/>
+      <xs:element name="passed" type="xs:boolean"/>
+      <xs:element name="score" type="xs:int" minOccurs="0"/>
+      <xs:element name="student" type="tns:student" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getStudentById">
+    <xs:sequence>
+      <xs:element name="studentId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getStudentByIdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:student" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllCourses">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllCoursesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllStudentsWhichArePassedExam">
+    <xs:sequence>
+      <xs:element name="courseId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllStudentsWhichArePassedExamResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:exam" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getExamsOfStudent">
+    <xs:sequence>
+      <xs:element name="studentId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getExamsOfStudentResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:exam" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllStudentsOnExam">
+    <xs:sequence>
+      <xs:element name="courseId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllStudentsOnExamResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:student" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>
 

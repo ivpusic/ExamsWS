@@ -17,7 +17,6 @@ public class DbHelper {
     /*
      * Connect to database
      */
-
     private Connection connectToDatabase() {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -67,11 +66,17 @@ public class DbHelper {
         return this.executeCommand(selectStatement, Integer.toString(id));
     }
 
+    /*
+     * Find records by fk value
+     */
     protected ResultSet findRecordByForeignKey(String table, String fkName, int fkValue) {
         String selectStatement = "SELECT * FROM APP." + table + " WHERE " + fkName + "=?";
         return this.executeCommand(selectStatement, Integer.toString(fkValue));
     }
 
+    /*
+     * Find records by fk value and come additional condition
+     */
     protected ResultSet findRecordByForeignKey(String table, String fkName, int fkValue, String condName, int condValue) {
         String selectStatement = "SELECT * FROM APP." + table + " WHERE " + fkName + "=? AND " + condName + "=?";
         return this.executeCommand(selectStatement, Integer.toString(fkValue), Integer.toString(condValue));

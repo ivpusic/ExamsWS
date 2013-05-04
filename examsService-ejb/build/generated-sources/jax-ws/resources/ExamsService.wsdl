@@ -6,31 +6,91 @@
       <xsd:import namespace="http://exams.emp.com/" schemaLocation="ExamsService_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="hello">
-    <part name="parameters" element="tns:hello"/>
+  <message name="getStudentById">
+    <part name="parameters" element="tns:getStudentById"/>
   </message>
-  <message name="helloResponse">
-    <part name="parameters" element="tns:helloResponse"/>
+  <message name="getStudentByIdResponse">
+    <part name="parameters" element="tns:getStudentByIdResponse"/>
   </message>
-  <message name="getLandeka">
-    <part name="parameters" element="tns:getLandeka"/>
+  <message name="getAllStudents">
+    <part name="parameters" element="tns:getAllStudents"/>
   </message>
-  <message name="getLandekaResponse">
-    <part name="parameters" element="tns:getLandekaResponse"/>
+  <message name="getAllStudentsResponse">
+    <part name="parameters" element="tns:getAllStudentsResponse"/>
+  </message>
+  <message name="getCourseById">
+    <part name="parameters" element="tns:getCourseById"/>
+  </message>
+  <message name="getCourseByIdResponse">
+    <part name="parameters" element="tns:getCourseByIdResponse"/>
+  </message>
+  <message name="getAllCourses">
+    <part name="parameters" element="tns:getAllCourses"/>
+  </message>
+  <message name="getAllCoursesResponse">
+    <part name="parameters" element="tns:getAllCoursesResponse"/>
+  </message>
+  <message name="getExamsOfStudent">
+    <part name="parameters" element="tns:getExamsOfStudent"/>
+  </message>
+  <message name="getExamsOfStudentResponse">
+    <part name="parameters" element="tns:getExamsOfStudentResponse"/>
+  </message>
+  <message name="getAllStudentsOnExam">
+    <part name="parameters" element="tns:getAllStudentsOnExam"/>
+  </message>
+  <message name="getAllStudentsOnExamResponse">
+    <part name="parameters" element="tns:getAllStudentsOnExamResponse"/>
+  </message>
+  <message name="getAllStudentsWhichArePassedExam">
+    <part name="parameters" element="tns:getAllStudentsWhichArePassedExam"/>
+  </message>
+  <message name="getAllStudentsWhichArePassedExamResponse">
+    <part name="parameters" element="tns:getAllStudentsWhichArePassedExamResponse"/>
+  </message>
+  <message name="getAllStudentsWhichAreNotPassedExam">
+    <part name="parameters" element="tns:getAllStudentsWhichAreNotPassedExam"/>
+  </message>
+  <message name="getAllStudentsWhichAreNotPassedExamResponse">
+    <part name="parameters" element="tns:getAllStudentsWhichAreNotPassedExamResponse"/>
   </message>
   <portType name="examsService">
-    <operation name="hello">
-      <input wsam:Action="http://exams.emp.com/examsService/helloRequest" message="tns:hello"/>
-      <output wsam:Action="http://exams.emp.com/examsService/helloResponse" message="tns:helloResponse"/>
+    <operation name="getStudentById">
+      <input wsam:Action="http://exams.emp.com/examsService/getStudentByIdRequest" message="tns:getStudentById"/>
+      <output wsam:Action="http://exams.emp.com/examsService/getStudentByIdResponse" message="tns:getStudentByIdResponse"/>
     </operation>
-    <operation name="getLandeka">
-      <input wsam:Action="http://exams.emp.com/examsService/getLandekaRequest" message="tns:getLandeka"/>
-      <output wsam:Action="http://exams.emp.com/examsService/getLandekaResponse" message="tns:getLandekaResponse"/>
+    <operation name="getAllStudents">
+      <input wsam:Action="http://exams.emp.com/examsService/getAllStudentsRequest" message="tns:getAllStudents"/>
+      <output wsam:Action="http://exams.emp.com/examsService/getAllStudentsResponse" message="tns:getAllStudentsResponse"/>
+    </operation>
+    <operation name="getCourseById">
+      <input wsam:Action="http://exams.emp.com/examsService/getCourseByIdRequest" message="tns:getCourseById"/>
+      <output wsam:Action="http://exams.emp.com/examsService/getCourseByIdResponse" message="tns:getCourseByIdResponse"/>
+    </operation>
+    <operation name="getAllCourses">
+      <input wsam:Action="http://exams.emp.com/examsService/getAllCoursesRequest" message="tns:getAllCourses"/>
+      <output wsam:Action="http://exams.emp.com/examsService/getAllCoursesResponse" message="tns:getAllCoursesResponse"/>
+    </operation>
+    <operation name="getExamsOfStudent">
+      <input wsam:Action="http://exams.emp.com/examsService/getExamsOfStudentRequest" message="tns:getExamsOfStudent"/>
+      <output wsam:Action="http://exams.emp.com/examsService/getExamsOfStudentResponse" message="tns:getExamsOfStudentResponse"/>
+    </operation>
+    <operation name="getAllStudentsOnExam">
+      <input wsam:Action="http://exams.emp.com/examsService/getAllStudentsOnExamRequest" message="tns:getAllStudentsOnExam"/>
+      <output wsam:Action="http://exams.emp.com/examsService/getAllStudentsOnExamResponse" message="tns:getAllStudentsOnExamResponse"/>
+    </operation>
+    <operation name="getAllStudentsWhichArePassedExam">
+      <input wsam:Action="http://exams.emp.com/examsService/getAllStudentsWhichArePassedExamRequest" message="tns:getAllStudentsWhichArePassedExam"/>
+      <output wsam:Action="http://exams.emp.com/examsService/getAllStudentsWhichArePassedExamResponse" message="tns:getAllStudentsWhichArePassedExamResponse"/>
+    </operation>
+    <operation name="getAllStudentsWhichAreNotPassedExam">
+      <input wsam:Action="http://exams.emp.com/examsService/getAllStudentsWhichAreNotPassedExamRequest" message="tns:getAllStudentsWhichAreNotPassedExam"/>
+      <output wsam:Action="http://exams.emp.com/examsService/getAllStudentsWhichAreNotPassedExamResponse" message="tns:getAllStudentsWhichAreNotPassedExamResponse"/>
     </operation>
   </portType>
   <binding name="examsServicePortBinding" type="tns:examsService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="hello">
+    <operation name="getStudentById">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -39,7 +99,61 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="getLandeka">
+    <operation name="getAllStudents">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getCourseById">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllCourses">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getExamsOfStudent">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllStudentsOnExam">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllStudentsWhichArePassedExam">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllStudentsWhichAreNotPassedExam">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
