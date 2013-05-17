@@ -61,7 +61,7 @@ public class examsService {
      * Method for retriving all courses from database
      */
     @WebMethod(operationName = "getAllCourses")
-    public List getAllCourses() {
+    public List<Course> getAllCourses() {
         return courseHelper.getAllCoursesFromDatabase();
     }
 
